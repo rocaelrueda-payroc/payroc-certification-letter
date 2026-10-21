@@ -231,12 +231,20 @@
   <section id="s-hw">
     <span class="section-tag">Hardware &amp; Payment Methods</span>
     <h2>Supported hardware and payment methods</h2>
-    <h3>Supported hardware <span class="pill pill-no">Delete if not applicable</span></h3>
+    <h3>Supported hardware: SDK <span class="pill pill-no">Delete if not applicable</span></h3>
     <table id="hwTable">
       <tr><th>Device model</th><th>SDK / firmware version</th><th>Comment</th><th class="xc"></th></tr>
       <tr><td><span class="fill" contenteditable="true" data-ph="[model]">[model]</span></td><td><span class="fill" contenteditable="true" data-ph="[version]">[version]</span></td><td><span class="fill" contenteditable="true" data-ph="[comment]">[comment]</span></td><td class="xc"><button class="x no-print" title="Remove">&times;</button></td></tr>
     </table>
     <button class="add no-print" data-add="hw">+ Add item</button>
+    <h3>Supported hardware: Payroc Cloud <span class="pill pill-no">Delete if not applicable</span></h3>
+    <p>Payroc Cloud is device-agnostic: instructions are relayed through the gateway to the payment device. Supported devices are restricted to Ingenico Axium and PAX Android models.</p>
+    <table id="cloudTable">
+      <tr><th>Device family</th><th>Comment</th><th class="xc"></th></tr>
+      <tr><td>Ingenico Axium series</td><td><span class="fill" contenteditable="true" data-ph="[comment]">[comment]</span></td><td class="xc"><button class="x no-print" title="Remove">&times;</button></td></tr>
+      <tr><td>PAX Android models</td><td><span class="fill" contenteditable="true" data-ph="[comment]">[comment]</span></td><td class="xc"><button class="x no-print" title="Remove">&times;</button></td></tr>
+    </table>
+    <button class="add no-print" data-add="cloud">+ Add item</button>
     <h3>Supported payment methods</h3>
     <table id="pmTable"><tr><th>Payment type</th><th>Comment</th><th class="xc"></th></tr></table>
     <button class="add no-print" data-add="pm">+ Add item</button>
@@ -423,6 +431,9 @@ document.addEventListener('click', function(e){
   } else if(k==='hw'){
     el=document.createElement('tr'); el.innerHTML='<td>'+F('[model]')+'</td><td>'+F('[version]')+'</td><td>'+F('[comment]')+'</td>'+XB;
     document.getElementById('hwTable').appendChild(el);
+  } else if(k==='cloud'){
+    el=document.createElement('tr'); el.innerHTML='<td>'+F('[device family]')+'</td><td>'+F('[comment]')+'</td>'+XB;
+    document.getElementById('cloudTable').appendChild(el);
   } else if(k==='flow'){
     el=document.createElement('tr'); el.innerHTML='<td>'+F('[Flow]')+'</td><td>'+F('[Approved configuration]')+'</td>'+XB;
     document.getElementById('flowTable').appendChild(el);
